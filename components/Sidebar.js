@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <div className="hidden lg:inline">
         <div className="flex items-center space-x-2 pl-4 hover:bg-gray-200 rounded-w-xl cursor-pointer flex-col py-2 lg:min-w-[320px]">
-            {/* <Image src={session?.user.image} height={40} width={40} /> className="rounded-full cursor-pointer" */}
+            <img src={session?.user.image} className="rounded-full cursor-pointer" height={40} width={40} /> 
             <p className="hidden sm:inline-flex font-medium">{session?.user.name}</p>
         </div>
         <SidebarItem Icon={ImUsers} value="Friend"  />

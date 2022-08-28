@@ -19,10 +19,21 @@ const CreatePost = () => {
                </form>
         </div>
         <div className="flex justify-evenly py-2">
-            <div className="flex items-center space-x-1 flex-grow justify-center">
+            <div className="flex items-center space-x-1 flex-grow justify-center hover:bg-gray-100 rounded-md hover:cursor-pointer">
                 <HiOutlineVideoCamera size={20} className="text-red-500"/>
                 <p>Live Video</p>
             </div>
+
+            <div className="flex items-center space-x-1 flex-grow justify-center hover:bg-gray-100 rounded-md hover:cursor-pointer">
+                <IoMdPhotos size={20} className="text-green-500"/>
+                <p>Photo/Video</p>
+            </div>
+
+            <div className="flex items-center space-x-1 flex-grow justify-center hover:bg-gray-100 rounded-md hover:cursor-pointer">
+                <BsEmojiSmile size={20} className="text-yellow-500"/>
+                <p>Feeling/Activity</p>
+            </div>
+            
         </div>
     </div>
   )
