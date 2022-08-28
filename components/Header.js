@@ -7,14 +7,16 @@ import { AiOutlineShop, AiFillMessage, AiFillBell } from 'react-icons/ai'
 import { MdOutlineOnDemand, MdOutlineExpandMore } from 'react-icons/md'
 import { IoGameControllerOutline } from 'react-icons/io5'
 import {CgMenuGridO} from 'react-icons/cg'
+import { useSession, signOut } from 'next-auth/react'
 
 
 const Header = () => {
+  const {data:session} = useSession();
   return (
     <div className="flex items-center p-2 shadow-md top-0 sticky z-50 h-16">
         {/* Left component */}
         <div className="flex min-w-fit ">
-          {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/800px-2021_Facebook_icon.svg.png" height={40} width={40} /> */}
+          {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/800px-2021_Facebook_icon.svg.png" height={40} width={40} onClick={signOut} /> */}
           <div className="flex items-center space-x-2 p-2 ml-2 rounded-full bg-gray-100 text-gray-500 ">
             <HiOutlineSearch size={20}/>
             <input className="lg:inline-flex focus:outline-none bg-transparent" type="text" placeholder='Search Facebook' />
@@ -43,9 +45,10 @@ const Header = () => {
         </div>
         {/* Right component */}
         <div className="flex items-center justify-end min-w-fit space-x-2">
-            {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/800px-2021_Facebook_icon.svg.png" height={40} width={40} /> */}
+            {/* <Image 
+             src={session?.user.image} height={40} width={40} className={rounded-full cursor-pointer} /> */}
 
-            <p className="hidden xl:inline-flex font-semibold text-sm whitespace-nowrap p-3 max-width-xs">Adeola</p>
+            <p className="hidden xl:inline-flex font-semibold text-sm whitespace-nowrap p-3 max-width-xs">{session?.user.name.split(" ")[0]}</p>
             <CgMenuGridO size={20} className="hidden lg:inline-flex h-10 w-10 bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-300"/>
 
             <AiFillMessage size={20} className="hidden lg:inline-flex h-10 w-10 bg-gray-200 text-gray-500 rounded-full p-2 cursor-pointer hover:bg-gray-300"/>
