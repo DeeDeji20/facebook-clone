@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import {HiOutlineHome, HiOutlineSearch} from 'react-icons/hi'
 import { RiFlag2Line } from 'react-icons/ri'
 import { MdOutlineOndemandVideo } from 'react-icons/md'
@@ -46,6 +45,7 @@ const Header = () => {
         {/* Right component */}
         <div className="flex items-center justify-end min-w-fit space-x-2">
             <img 
+            onClick={signOut}
              src={session?.user.image} height={40} width={40} className="rounded-full cursor-pointer" />
 
             <p className="hidden xl:inline-flex font-semibold text-sm whitespace-nowrap p-3 max-width-xs">{session?.user.name.split(" ")[0]}</p>
