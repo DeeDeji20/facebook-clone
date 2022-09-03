@@ -3,6 +3,8 @@ import React, { useRef, useState } from 'react'
 import {HiOutlineVideoCamera} from "react-icons/hi"
 import {IoMdPhotos} from "react-icons/io"
 import {BsEmojiSmile} from "react-icons/bs"
+import {RiDeleteBin6Line} from "react-icons/ri"
+
 
 const CreatePost = () => {
     const [imageToPost, setImageToPost] = useState(null)
@@ -12,6 +14,10 @@ const CreatePost = () => {
 
     const handleClick = ()=>{
         hiddenFileInput.current.click();
+    }
+
+    const removeImage = () => {
+        
     }
 
     const addImageToPost = (e) => {
@@ -26,8 +32,7 @@ const CreatePost = () => {
     return (
     <div className="bg-white rounded-md shadow-md text-gray-500 p-2">
         <div className="flex p-4 space-x-2 items-center">
-               {/* <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/800px-2021_Facebook_icon.svg.png" height={40} width={40}/> */}
-
+            
                <form className="flex flex-1 ">
                    <input type="text"
                    ref={inputRef}
@@ -37,9 +42,12 @@ const CreatePost = () => {
                </form>
         </div>
         {imageToPost && (
-            <di className="flex items-center px-4 py-2 space-x-4 filter hover:brightness-110 transition duration-150">
+            <div
+            onClick={removeImage}
+            className="flex items-center px-4 py-2 space-x-4 filter hover:brightness-110 transition duration-150 cursor-pointer">
                 <img src={imageToPost} className="h-10 object-contain" alt="" />
-            </di>
+                <RiDeleteBin6Line className="h-8 hover:text-red-600"/>
+            </div>
         )}
         <div className="flex justify-evenly py-2">
             <div className="flex items-center space-x-1 flex-grow justify-center hover:bg-gray-100 rounded-md hover:cursor-pointer">
